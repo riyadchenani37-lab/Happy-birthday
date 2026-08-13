@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  overflow-x:hidden;overflow-y:auto;font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffd6e8,#ffb6d5,#ffcce3);
+  color:#b41461;
+}
+.card{
+  width:min(900px,90vw);padding:45px 35px;text-align:center;margin:30px 0;
+  background:rgba(255,255,255,.48);border:2px solid rgba(255,255,255,.7);
+  border-radius:30px;box-shadow:0 20px 60px rgba(180,20,97,.18);
+  backdrop-filter:blur(10px);
+}
+#birthday{
+  position:relative;min-height:250px;display:flex;align-items:center;justify-content:center;
+}
+.title{
+  position:absolute;font-size:clamp(42px,9vw,90px);font-weight:900;
+  opacity:0;transform:scale(.3);animation:showTitle 2s ease forwards;
+  text-shadow:0 8px 20px rgba(180,20,97,.2);
+}
+.heart{
+  position:absolute;width:150px;height:150px;background:#ff4f9a;
+  transform:rotate(-45deg) scale(.2);opacity:0;
+  animation:heartShow 2s cubic-bezier(.2,.8,.2,1) forwards;
+  filter:drop-shadow(0 12px 20px rgba(255,55,140,.35));
+}
+.heart:before,.heart:after{
+  content:"";position:absolute;width:150px;height:150px;border-radius:50%;
+  background:#ff4f9a;
+}
+.heart:before{top:-75px;left:0}.heart:after{left:75px;top:0}
+.message{
+  opacity:0;transform:translateY(30px);
+  animation:messageShow 1.2s ease forwards;
+  animation-delay:4.2s;
+}
+.message h2{font-size:32px;margin:0 0 20px}
+.message p{
+  max-width:760px;margin:auto;font-size:20px;line-height:1.9;
+  color:#7e164d;white-space:normal;overflow:visible;
+}
+@keyframes heartShow{
+  0%{opacity:0;transform:rotate(-45deg) scale(.2)}
+  25%{opacity:1;transform:rotate(-45deg) scale(1)}
+  70%{opacity:1;transform:rotate(-45deg) scale(1)}
+  100%{opacity:0;transform:rotate(-45deg) scale(.8)}
+}
+@keyframes showTitle{
+  0%,35%{opacity:0;transform:scale(.3)}
+  45%,72%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.15)}
+}
+@keyframes messageShow{to{opacity:1;transform:translateY(0)}}
+.petal{
+  position:fixed;top:-20px;width:12px;height:12px;background:#ff80b5;
+  border-radius:50% 0 50% 50%;opacity:.7;animation:fall linear infinite;
+}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="birthday">
+    <div class="heart"></div>
+    <div class="title">Happy Birthday</div>
+  </div>
+  <div class="message">
+    <h2>💗 Happy Birthday 💗</h2>
+    <p>
+      I hope your birthday is filled with beautiful moments and memories that stay with you for a very long time
+      I hope today gives you countless reasons to smile and reminds you of all the people who genuinely care about you
+      I hope you get to enjoy every little moment whether it is something exciting something funny or simply spending time with the people who make you happiest
+      You deserve a day full of happiness laughter peace and all the little things that make life feel special
+      I hope this new year of your life brings you amazing experiences unforgettable memories new opportunities and so many moments that make you proud of how far you have come
+      I hope you continue to grow into an even more amazing person while staying true to yourself and keeping that special personality that makes you who you are
+      There will always be difficult days but I hope the good days become more common and the memories you create become more meaningful with every passing year
+      I hope you meet wonderful people learn new things discover new places and experience moments that you will look back on one day with a huge smile
+      I hope you never forget that you are appreciated more than you probably realize and that your presence can make a difference in the lives of the people around you
+      Always remember to celebrate yourself and everything you have accomplished no matter how small it might seem because every step forward is something worth being proud of
+      I hope you keep chasing the things that make you happy and never stop believing that there are still so many beautiful moments waiting for you
+      May this birthday be the beginning of an incredible chapter filled with happiness friendship adventures laughter success and memories that you will never forget
+      Enjoy every second of your special day take in all the love around you smile as much as possible and make this birthday one that you will always remember
+    </p>
+  </div>
+</div>
+<script>
+for(let i=0;i<28;i++){
+  const p=document.createElement('div');
+  p.className='petal';
+  p.style.left=Math.random()*100+'vw';
+  p.style.animationDuration=(5+Math.random()*7)+'s';
+  p.style.animationDelay=(-Math.random()*8)+'s';
+  p.style.transform=`scale(${.5+Math.random()})`;
+  document.body.appendChild(p);
+}
+</script>
+</body>
+</html>
